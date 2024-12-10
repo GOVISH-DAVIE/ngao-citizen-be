@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model IPRS_Person {
+  id                Int      @id @default(autoincrement())
+  id_no             String?  @unique
+  passport_no       String?
+  first_name        String
+  middle_name       String?
+  last_name         String
+  gender            String
+  nationality       String
+  county_of_birth   String?
+  district_of_birth String?
+  division_of_birth String?
+  location_of_birth String?
+  date_of_birth     DateTime
+  mug_shot          String? // Assuming the mug_shot field stores a file path
+}
